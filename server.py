@@ -22,6 +22,8 @@ def main():
     """
         呵呵哒
     """
+    # 启用文件记录日志
+    # tornado.options.define("log_file_prefix", "logs/my_app.log")  
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)

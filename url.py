@@ -10,5 +10,3 @@ from handler.index import IndexHandler
 url = [
     (r'/', IndexHandler)
     ]
-
-print("ok")
