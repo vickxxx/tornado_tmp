@@ -16,7 +16,7 @@ from application import application
 from tornado.options import define, options
 
 define("port", default=80, help="run on th given port", type=int)
-
+define('debug', default=True, help='enable debug mode')
 
 def main():
     """

@@ -9,6 +9,6 @@ import tornado.web
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
-        lst = "welcome you."
-        self.render('index.html')
+        welcome_word = "welcome you. this is randered by jinja2"
+        self.render('index.html', sth=welcome_word)
 
