@@ -55,3 +55,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+*.p12
+*.csv
+*.xml
+.idea/tornado_tmpl.iml
+.idea/*
+.vscode/*
