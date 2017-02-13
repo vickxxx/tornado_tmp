@@ -6,17 +6,18 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath('.'))
-
+import tornado.httpserver
 import tornado.ioloop
 import tornado.options
-import tornado.httpserver
-# from db.db import *
-from application import application
 from tornado.options import define, options
+
+from application import application
+
+sys.path.append(os.path.abspath('.'))
 
 define("port", default=80, help="run on th given port", type=int)
 define('debug', default=True, help='enable debug mode')
+
 
 def main():
     """

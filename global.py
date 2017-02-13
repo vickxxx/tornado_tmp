@@ -3,4 +3,3 @@
 """
 定义全局变量
 """
-from db.db import *

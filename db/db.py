@@ -221,7 +221,8 @@ class mb_db:
             k, v
             # print sql_str.join(str(k))
             if k in (
-            'roleid', 'premission_code', 'invalid', 'id', 'direct_flag', 'onekey_flag', 'access_flag', 'portal_id'):
+                    'roleid', 'premission_code', 'invalid', 'id', 'direct_flag', 'onekey_flag', 'access_flag',
+                    'portal_id'):
                 sql_str += (k + ' = ' + v + ',')
             else:
                 sql_str += (k + ' = "' + v + '",')
@@ -235,7 +236,6 @@ class mb_db:
 
 
 if __name__ == '__main__':
-
     sys.path.append(os.path.abspath('../'))
     d = mb_db()
     role_test = ('猛男3', 123, 'ddd', None, 'NULL', 'ttt')
