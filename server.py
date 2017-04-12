@@ -35,6 +35,10 @@ def main():
     tornado.options.parse_command_line()
     if not sys.platform.startswith('win'):
         import coloredlogs
+        coloredlogs.install(level='DEBUG')  
+        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.runtime"))
+        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.access"))
+        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.root"))  
         coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.application"))    
     
     http_server = tornado.httpserver.HTTPServer(application)
@@ -42,12 +46,13 @@ def main():
     print('Development server is running at http://127.0.0.1:%s/' % options.port)
     print('Quit the server with Control-C')
     ll = logging.getLogger("tornado.application")
-    for i in range(120):
-        ll.info(str(i))
-        try:
-            4/0
-        except Exception as e:
-            ll.exception("lelel")
+    logging.info("5555")
+    logging.debug("xxxxx")
+    logging.error("ssss")
+    try:
+        4/0
+    except Exception as e:
+        ll.exception("lelel")
     tornado.ioloop.IOLoop.instance().start()
 
 
