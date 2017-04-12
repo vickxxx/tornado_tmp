@@ -19,7 +19,7 @@ from application import application
 
 sys.path.append(os.path.abspath('.'))
 
-define("port", default=80, help="run on th given port", type=int)
+define("port", default=8088, help="run on th given port", type=int)
 define('debug', default=True, help='enable debug mode')
 
 
