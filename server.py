@@ -35,11 +35,11 @@ def main():
     tornado.options.parse_command_line()
     if not sys.platform.startswith('win'):
         import coloredlogs
-        coloredlogs.install(level='DEBUG')  
-        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.runtime"))
-        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.access"))
-        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.root"))  
-        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.application"))    
+        fmt = '%(asctime)s - %(name)s - %(filename)s[%(lineno)d] - %(levelname)s - %(message)s'
+        coloredlogs.install(level='DEBUG', fmt=fmt)  
+        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.runtime"), fmt=fmt)
+        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.access"), fmt=fmt)
+        coloredlogs.install(level='DEBUG', logger = logging.getLogger("tornado.application"), fmt=fmt)    
     
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)
