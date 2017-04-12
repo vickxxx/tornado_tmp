@@ -5,6 +5,10 @@
 """
 import os
 import sys
+import yaml
+import time
+import logging
+import logging.config
 
 import tornado.httpserver
 import tornado.ioloop
@@ -24,12 +28,23 @@ def main():
         呵呵哒
     """
     # 启用文件记录日志
-    # tornado.options.define("log_file_prefix", "logs/my_app.log")  
+    #tornado.options.define("log_file_prefix", "logs/my_app.log")
+    
+    logging.config.dictConfig(yaml.load(open('logging.yaml', 'r')))
+    
     tornado.options.parse_command_line()
+    
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)
     print('Development server is running at http://127.0.0.1:%s/' % options.port)
     print('Quit the server with Control-C')
+    ll = logging.getLogger("tornado.application")
+    for i in range(120):
+        ll.info(str(i))
+        try:
+            4/0
+        except Exception as e:
+            ll.exception("lelel")
     tornado.ioloop.IOLoop.instance().start()
 
 
