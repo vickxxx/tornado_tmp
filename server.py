@@ -35,7 +35,7 @@ def main():
     tornado.options.parse_command_line()
     if not sys.platform.startswith('win'):
         import coloredlogs
-        coloredlogs.install(level='DEBUG')    
+        coloredlogs.install(level='DEBUG', logging.getLogger("tornado"))    
     
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)
