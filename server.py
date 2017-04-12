@@ -33,6 +33,9 @@ def main():
     logging.config.dictConfig(yaml.load(open('logging.yaml', 'r')))
     
     tornado.options.parse_command_line()
+    if not sys.platform.startswith('win'):
+        import coloredlogs
+        coloredlogs.install(level='DEBUG')    
     
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)
